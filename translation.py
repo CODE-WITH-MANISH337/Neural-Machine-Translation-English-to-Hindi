@@ -13,7 +13,7 @@ if not os.path.exists('models/'):
     snapshot_download(
         repo_id=REPO_ID,
         repo_type="model",
-        local_dir="./"
+        local_dir="./models"
     )
     print("✅ Models downloaded!")
 
