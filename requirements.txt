@@ -1,0 +1,5 @@
+contractions
+tensorflow
+json
+streamlit
+numpy
