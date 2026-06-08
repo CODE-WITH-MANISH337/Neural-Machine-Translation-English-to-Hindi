@@ -8,14 +8,14 @@ import os
 
 REPO_ID = "CODE-WITH-MANISH337/English_to_hindi_transaltor"
 
-if not os.path.exists('models/'):
-    print("Downloading models from Hugging Face...")
-    snapshot_download(
+
+print("Downloading models from Hugging Face...")
+snapshot_download(
         repo_id=REPO_ID,
         repo_type="model",
         local_dir="./models"
     )
-    print("✅ Models downloaded!")
+print("Models downloaded!")
 
 with open(r'tokenizers\eng_vocab.json', 'r', encoding='utf-8') as f:
     eng_vocab= json.load(f)
