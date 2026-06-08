@@ -8,20 +8,26 @@ import os
 
 REPO_ID = "CODE-WITH-MANISH337/English_to_hindi_transaltor"
 
-
-print("Downloading models from Hugging Face...")
-snapshot_download(
+# ── Download from HF only if not present ──
+if not os.path.exists('models/encoder_model.keras'):
+    print("Downloading models...")
+    snapshot_download(
         repo_id=REPO_ID,
         repo_type="model",
-        local_dir="./models"
+        local_dir="./"
     )
-print("Models downloaded!")
+    print("✅ Downloaded!")
 
-with open(r'tokenizers\eng_vocab.json', 'r', encoding='utf-8') as f:
-    eng_vocab= json.load(f)
+# ── Load vocab ──
+with open('tokenizers/eng_vocab.json', 'r', encoding='utf-8') as f:
+    eng_vocab = json.load(f)
 
-with open(r'tokenizers\hindi_vocab.json', 'r', encoding='utf-8') as f:
-    hindi_vocab= json.load(f)
+with open('tokenizers/hindi_vocab.json', 'r', encoding='utf-8') as f:
+    hindi_vocab = json.load(f)
+
+# ── Load config ──
+with open('config.json', 'r') as f:
+    config = json.load(f)
 
 encoder_model=keras.models.load_model('models/encoder_model.keras')
 decoder_model=keras.models.load_model('models/decoder_model.keras')

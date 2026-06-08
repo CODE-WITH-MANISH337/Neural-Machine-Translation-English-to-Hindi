@@ -1,5 +1,5 @@
 contractions
 tensorflow
-hugging_face_hub
+huggingface_hub
 streamlit
 numpy
